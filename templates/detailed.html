@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{name}} - PokeApi</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        width: 100%;
+        background-color: #263238;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+      }
+      img {
+        width: 20%;
+        margin: auto;
+      }
+      .container {
+        width: 50%;
+        height: 50vh;
+        margin: auto;
+        margin-top: 20px;
+      }
+      h3 {
+        color: #2971b8;
+        margin-bottom: 10px;
+      }
+      h4 {
+        margin: 20px;
+      }
+      ul {
+        margin: 10px;
+        margin-left: 50px;
+      }
+    </style>
+    <nav>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+        alt=""
+      />
+    </nav>
+
+    <div class="container">
+      <h3>Nombre del pokemon: {{name}}</h3>
+      <h4>Peso: {{weight}}</h4>
+      <h4>Altura: {{height}}</h4>
+      <h4>Id: {{iden}}</h4>
+      <h4>Tipo / Tipos</h4>
+
+      <ul>
+        {% if tipo %} {% for row in tipo %}
+
+        <li>{{row.type.name}}</li>
+
+        {% endfor %}{% endif %}
+      </ul>
+      <h4>Habilidades</h4>
+      <ul>
+        {% if abilities %} {% for row in abilities %}
+
+        <li>{{row.ability.name}}</li>
+
+        {% endfor %}{% endif %}
+      </ul>
+    </div>
+  </body>
+</html>

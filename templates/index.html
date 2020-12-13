@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeApi</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        width: 100%;
+        background-color: #263238;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+      }
+      img {
+        width: 20%;
+        margin: auto;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 80%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        min-width: 400px;
+        max-width: 400px;
+        margin: 20px;
+        padding: 10px;
+        -webkit-box-shadow: 5px 5px 10px 0px rgba(38, 50, 56, 0.77);
+        box-shadow: 5px 5px 10px 0px rgba(38, 50, 56, 0.77);
+      }
+      .content-card {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .content-card a {
+        width: 50%;
+        padding: 10px;
+        border: none;
+        font-size: 17px;
+        cursor: pointer;
+        transition: all 0.2s;
+        outline: none;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: #c3c6c7;
+      }
+
+      .content-card {
+        padding: 5px;
+      }
+
+      .content-card a:hover {
+        outline: 1px solid #2575bb;
+        background-color: #e2b600;
+        color: black;
+      }
+      .title {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+    <nav>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+        alt=""
+      />
+    </nav>
+    <div class="title">
+      <h2>Haciendo consumo de la API REST de pokeapi</h2>
+    </div>
+    <div class="container">
+      {% if records %} {% for row in records %}
+      <!-- Inicio card -->
+      <div class="card">
+        <div class="content-card">
+          <h3>{{ row.name }}</h3>
+          <a
+            href="/poke-detail/{{row.name}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Más información</a
+          >
+        </div>
+      </div>
+      <!-- Fin card -->
+
+      {% endfor %}{% endif %}
+    </div>
+  </body>
+</html>
